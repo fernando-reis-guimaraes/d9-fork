@@ -1,4 +1,4 @@
-table: directus_panels
+table: sigedin_panels
 
 fields:
   - field: id

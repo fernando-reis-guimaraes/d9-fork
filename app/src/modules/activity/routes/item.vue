@@ -94,7 +94,7 @@ export default defineComponent({
 		const error = ref<any>(null);
 
 		const openItemLink = computed(() => {
-			if (!item.value || item.value.collection.startsWith('directus_') || item.value.action === 'delete') return;
+			if (!item.value || item.value.collection.startsWith('sigedin_') || item.value.action === 'delete') return;
 			return `/content/${item.value.collection}/${encodeURIComponent(item.value.item)}`;
 		});
 
@@ -128,8 +128,8 @@ export default defineComponent({
 				item.value = response.data.data;
 
 				if (item.value) {
-					if (te(`field_options.directus_activity.${item.value.action}`))
-						item.value.action_translated = t(`field_options.directus_activity.${item.value.action}`);
+					if (te(`field_options.sigedin_activity.${item.value.action}`))
+						item.value.action_translated = t(`field_options.sigedin_activity.${item.value.action}`);
 					item.value.timestamp = new Date(item.value.timestamp).toLocaleString(i18n.global.locale.value);
 				}
 			} catch (err: any) {

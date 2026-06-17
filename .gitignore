@@ -53,3 +53,5 @@ snapshots/
 /tests/blackbox/server-log-*
 /packages/extensions-sdk/temp-extension-*
 *.db
+
+.pnpm-store

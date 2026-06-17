@@ -1,7 +1,7 @@
-table: directus_relations
+table: sigedin_relations
 
 defaults:
-  many_collection: directus_users
+  many_collection: sigedin_users
   many_field: null
   one_collection: null
   one_field: null
@@ -12,114 +12,114 @@ defaults:
   sort_field: null
 
 data:
-  - many_collection: directus_collections
+  - many_collection: sigedin_collections
     many_field: group
-    one_collection: directus_collections
-  - many_collection: directus_users
+    one_collection: sigedin_collections
+  - many_collection: sigedin_users
     many_field: role
-    one_collection: directus_roles
+    one_collection: sigedin_roles
     one_field: users
-  - many_collection: directus_users
+  - many_collection: sigedin_users
     many_field: avatar
-    one_collection: directus_files
-  - many_collection: directus_revisions
+    one_collection: sigedin_files
+  - many_collection: sigedin_revisions
     many_field: activity
-    one_collection: directus_activity
+    one_collection: sigedin_activity
     one_field: revisions
-  - many_collection: directus_presets
+  - many_collection: sigedin_presets
     many_field: user
-    one_collection: directus_users
-  - many_collection: directus_presets
+    one_collection: sigedin_users
+  - many_collection: sigedin_presets
     many_field: role
-    one_collection: directus_roles
-  - many_collection: directus_folders
+    one_collection: sigedin_roles
+  - many_collection: sigedin_folders
     many_field: parent
-    one_collection: directus_folders
-  - many_collection: directus_files
+    one_collection: sigedin_folders
+  - many_collection: sigedin_files
     many_field: folder
-    one_collection: directus_folders
-  - many_collection: directus_files
+    one_collection: sigedin_folders
+  - many_collection: sigedin_files
     many_field: uploaded_by
-    one_collection: directus_users
-  - many_collection: directus_fields
+    one_collection: sigedin_users
+  - many_collection: sigedin_fields
     many_field: collection
-    one_collection: directus_collections
+    one_collection: sigedin_collections
     one_field: fields
-  - many_collection: directus_activity
+  - many_collection: sigedin_activity
     many_field: user
-    one_collection: directus_users
-  - many_collection: directus_settings
+    one_collection: sigedin_users
+  - many_collection: sigedin_settings
     many_field: project_logo
-    one_collection: directus_files
-  - many_collection: directus_settings
+    one_collection: sigedin_files
+  - many_collection: sigedin_settings
     many_field: public_foreground
-    one_collection: directus_files
-  - many_collection: directus_settings
+    one_collection: sigedin_files
+  - many_collection: sigedin_settings
     many_field: public_background
-    one_collection: directus_files
-  - many_collection: directus_panels
+    one_collection: sigedin_files
+  - many_collection: sigedin_panels
     many_field: dashboard
-    one_collection: directus_dashboards
+    one_collection: sigedin_dashboards
     one_field: panels
-  - many_collection: directus_flows
+  - many_collection: sigedin_flows
     many_field: operation
-    one_collection: directus_operations
-  - many_collection: directus_operations
+    one_collection: sigedin_operations
+  - many_collection: sigedin_operations
     many_field: flow
-    one_collection: directus_flows
+    one_collection: sigedin_flows
     one_field: operations
     one_deselect_action: delete
-  - many_collection: directus_operations
+  - many_collection: sigedin_operations
     many_field: resolve
-    one_collection: directus_operations
-  - many_collection: directus_operations
+    one_collection: sigedin_operations
+  - many_collection: sigedin_operations
     many_field: reject
-    one_collection: directus_operations
-  - many_collection: directus_files
+    one_collection: sigedin_operations
+  - many_collection: sigedin_files
     many_field: modified_by
-    one_collection: directus_users
-  - many_collection: directus_fields
+    one_collection: sigedin_users
+  - many_collection: sigedin_fields
     many_field: group
-    one_collection: directus_fields
-  - many_collection: directus_permissions
+    one_collection: sigedin_fields
+  - many_collection: sigedin_permissions
     many_field: role
-    one_collection: directus_roles
-  - many_collection: directus_revisions
+    one_collection: sigedin_roles
+  - many_collection: sigedin_revisions
     many_field: parent
-    one_collection: directus_revisions
-  - many_collection: directus_sessions
+    one_collection: sigedin_revisions
+  - many_collection: sigedin_sessions
     many_field: user
-    one_collection: directus_users
-  - many_collection: directus_sessions
+    one_collection: sigedin_users
+  - many_collection: sigedin_sessions
     many_field: share
-    one_collection: directus_shares
-  - many_collection: directus_settings
+    one_collection: sigedin_shares
+  - many_collection: sigedin_settings
     many_field: storage_default_folder
-    one_collection: directus_folders
-  - many_collection: directus_dashboards
+    one_collection: sigedin_folders
+  - many_collection: sigedin_dashboards
     many_field: user_created
-    one_collection: directus_users
-  - many_collection: directus_panels
+    one_collection: sigedin_users
+  - many_collection: sigedin_panels
     many_field: user_created
-    one_collection: directus_users
-  - many_collection: directus_flows
+    one_collection: sigedin_users
+  - many_collection: sigedin_flows
     many_field: user_created
-    one_collection: directus_users
-  - many_collection: directus_operations
+    one_collection: sigedin_users
+  - many_collection: sigedin_operations
     many_field: user_created
-    one_collection: directus_users
-  - many_collection: directus_notifications
+    one_collection: sigedin_users
+  - many_collection: sigedin_notifications
     many_field: recipient
-    one_collection: directus_users
-  - many_collection: directus_notifications
+    one_collection: sigedin_users
+  - many_collection: sigedin_notifications
     many_field: sender
-    one_collection: directus_users
-  - many_collection: directus_shares
+    one_collection: sigedin_users
+  - many_collection: sigedin_shares
     many_field: role
-    one_collection: directus_roles
-  - many_collection: directus_shares
+    one_collection: sigedin_roles
+  - many_collection: sigedin_shares
     many_field: collection
-    one_collection: directus_collections
-  - many_collection: directus_shares
+    one_collection: sigedin_collections
+  - many_collection: sigedin_shares
     many_field: user_created
-    one_collection: directus_users
+    one_collection: sigedin_users

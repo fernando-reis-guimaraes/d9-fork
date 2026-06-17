@@ -147,7 +147,7 @@ d9
 d9[-.](.*)
 directus
 Directus
-directus_(.*)
+sigedin_(.*)
 Directus.
 Directus's
 Directus-(.*)

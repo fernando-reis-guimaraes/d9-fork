@@ -1,4 +1,4 @@
-table: directus_collections
+table: sigedin_collections
 
 defaults:
   collection: null
@@ -11,64 +11,64 @@ defaults:
   accountability: 'all'
 
 data:
-  - collection: directus_activity
-    note: $t:directus_collection.directus_activity
+  - collection: sigedin_activity
+    note: $t:sigedin_collection.sigedin_activity
     accountability: null
-  - collection: directus_collections
+  - collection: sigedin_collections
     icon: list_alt
-    note: $t:directus_collection.directus_collections
-  - collection: directus_fields
+    note: $t:sigedin_collection.sigedin_collections
+  - collection: sigedin_fields
     icon: input
-    note: $t:directus_collection.directus_fields
-  - collection: directus_files
+    note: $t:sigedin_collection.sigedin_fields
+  - collection: sigedin_files
     icon: folder
-    note: $t:directus_collection.directus_files
+    note: $t:sigedin_collection.sigedin_files
     display_template: '{{ $thumbnail }} {{ title }}'
-  - collection: directus_folders
-    note: $t:directus_collection.directus_folders
+  - collection: sigedin_folders
+    note: $t:sigedin_collection.sigedin_folders
     display_template: '{{ name }}'
-  - collection: directus_migrations
-    note: $t:directus_collection.directus_migrations
-  - collection: directus_permissions
+  - collection: sigedin_migrations
+    note: $t:sigedin_collection.sigedin_migrations
+  - collection: sigedin_permissions
     icon: admin_panel_settings
-    note: $t:directus_collection.directus_permissions
-  - collection: directus_presets
+    note: $t:sigedin_collection.sigedin_permissions
+  - collection: sigedin_presets
     icon: bookmark
-    note: $t:directus_collection.directus_presets
+    note: $t:sigedin_collection.sigedin_presets
     accountability: null
-  - collection: directus_relations
+  - collection: sigedin_relations
     icon: merge_type
-    note: $t:directus_collection.directus_relations
-  - collection: directus_revisions
-    note: $t:directus_collection.directus_revisions
+    note: $t:sigedin_collection.sigedin_relations
+  - collection: sigedin_revisions
+    note: $t:sigedin_collection.sigedin_revisions
     accountability: null
-  - collection: directus_roles
+  - collection: sigedin_roles
     icon: supervised_user_circle
-    note: $t:directus_collection.directus_roles
-  - collection: directus_sessions
-    note: $t:directus_collection.directus_sessions
-  - collection: directus_settings
+    note: $t:sigedin_collection.sigedin_roles
+  - collection: sigedin_sessions
+    note: $t:sigedin_collection.sigedin_sessions
+  - collection: sigedin_settings
     singleton: true
-    note: $t:directus_collection.directus_settings
-  - collection: directus_users
+    note: $t:sigedin_collection.sigedin_settings
+  - collection: sigedin_users
     archive_field: status
     archive_value: archived
     unarchive_value: draft
     icon: people_alt
-    note: $t:directus_collection.directus_users
+    note: $t:sigedin_collection.sigedin_users
     display_template: '{{ first_name }} {{ last_name }}'
-  - collection: directus_webhooks
-    note: $t:directus_collection.directus_webhooks
-  - collection: directus_dashboards
-    note: $t:directus_collection.directus_dashboards
-  - collection: directus_panels
-    note: $t:directus_collection.directus_panels
-  - collection: directus_notifications
-    note: $t:directus_collection.directus_notifications
-  - collection: directus_shares
+  - collection: sigedin_webhooks
+    note: $t:sigedin_collection.sigedin_webhooks
+  - collection: sigedin_dashboards
+    note: $t:sigedin_collection.sigedin_dashboards
+  - collection: sigedin_panels
+    note: $t:sigedin_collection.sigedin_panels
+  - collection: sigedin_notifications
+    note: $t:sigedin_collection.sigedin_notifications
+  - collection: sigedin_shares
     icon: share
-    note: $t:directus_collection.directus_shares
-  - collection: directus_flows
-    note: $t:directus_collection.directus_flows
-  - collection: directus_operations
-    note: $t:directus_collection.directus_operations
+    note: $t:sigedin_collection.sigedin_shares
+  - collection: sigedin_flows
+    note: $t:sigedin_collection.sigedin_flows
+  - collection: sigedin_operations
+    note: $t:sigedin_collection.sigedin_operations

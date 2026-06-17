@@ -14,66 +14,66 @@ import logger from '../../logger.js';
 
 const updates = [
 	{
-		table: 'directus_files',
+		table: 'sigedin_files',
 		constraints: [
 			{
 				column: 'folder',
-				references: 'directus_folders.id',
+				references: 'sigedin_folders.id',
 				on_delete: 'SET NULL',
 			},
 		],
 	},
 	{
-		table: 'directus_permissions',
+		table: 'sigedin_permissions',
 		constraints: [
 			{
 				column: 'role',
-				references: 'directus_roles.id',
+				references: 'sigedin_roles.id',
 				on_delete: 'CASCADE',
 			},
 		],
 	},
 	{
-		table: 'directus_presets',
+		table: 'sigedin_presets',
 		constraints: [
 			{
 				column: 'user',
-				references: 'directus_users.id',
+				references: 'sigedin_users.id',
 				on_delete: 'CASCADE',
 			},
 			{
 				column: 'role',
-				references: 'directus_roles.id',
+				references: 'sigedin_roles.id',
 				on_delete: 'CASCADE',
 			},
 		],
 	},
 	{
-		table: 'directus_revisions',
+		table: 'sigedin_revisions',
 		constraints: [
 			{
 				column: 'activity',
-				references: 'directus_activity.id',
+				references: 'sigedin_activity.id',
 				on_delete: 'CASCADE',
 			},
 		],
 	},
 	{
-		table: 'directus_sessions',
+		table: 'sigedin_sessions',
 		constraints: [
 			{
 				column: 'user',
-				references: 'directus_users.id',
+				references: 'sigedin_users.id',
 				on_delete: 'CASCADE',
 			},
 		],
 	},
 	{
-		table: 'directus_users',
+		table: 'sigedin_users',
 		constraints: [
 			{
 				column: 'role',
-				references: 'directus_roles.id',
+				references: 'sigedin_roles.id',
 				on_delete: 'SET NULL',
 			},
 		],

@@ -86,17 +86,17 @@ describe.each(PRIMARY_KEY_TYPES)('/fields', (pkType) => {
 								);
 
 								const appAccessPermissions = [
-									'directus_activity',
-									'directus_collections',
-									'directus_fields',
-									'directus_notifications',
-									'directus_permissions',
-									'directus_presets',
-									'directus_relations',
-									'directus_roles',
-									'directus_settings',
-									'directus_shares',
-									'directus_users',
+									'sigedin_activity',
+									'sigedin_collections',
+									'sigedin_fields',
+									'sigedin_notifications',
+									'sigedin_permissions',
+									'sigedin_presets',
+									'sigedin_relations',
+									'sigedin_roles',
+									'sigedin_settings',
+									'sigedin_shares',
+									'sigedin_users',
 								];
 
 								expect(response.statusCode).toBe(200);
@@ -247,11 +247,11 @@ describe.each(PRIMARY_KEY_TYPES)('/fields', (pkType) => {
 			afterEach(async () => {
 				const db = databases.get(currentVendor)!;
 
-				await db('directus_fields')
+				await db('sigedin_fields')
 					.update({ note: null })
 					.where({ collection: TEST_COLLECTION_NAME, field: TEST_FIELD_NAME });
 
-				await db('directus_fields')
+				await db('sigedin_fields')
 					.update({ note: null })
 					.where({ collection: TEST_COLLECTION_NAME, field: TEST_ALIAS_FIELD_NAME });
 			});
@@ -342,11 +342,11 @@ describe.each(PRIMARY_KEY_TYPES)('/fields', (pkType) => {
 			afterEach(async () => {
 				const db = databases.get(currentVendor)!;
 
-				await db('directus_fields')
+				await db('sigedin_fields')
 					.update({ note: null })
 					.where({ collection: TEST_COLLECTION_NAME, field: TEST_FIELD_NAME });
 
-				await db('directus_fields')
+				await db('sigedin_fields')
 					.update({ note: null })
 					.where({ collection: TEST_COLLECTION_NAME, field: TEST_ALIAS_FIELD_NAME });
 			});

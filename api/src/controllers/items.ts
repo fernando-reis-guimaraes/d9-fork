@@ -15,7 +15,7 @@ router.post(
 	'/:collection',
 	collectionExists,
 	asyncHandler(async (req, res, next) => {
-		if (req.params['collection']!.startsWith('directus_')) throw new ForbiddenException();
+		if (req.params['collection']!.startsWith('sigedin_')) throw new ForbiddenException();
 
 		if (req.singleton) {
 			throw new RouteNotFoundException(req.path);
@@ -58,10 +58,10 @@ router.post(
 );
 
 const readHandler = asyncHandler(async (req, res, next) => {
-	// [issues-33] we allow directus_collections to be read as items for m2m collection visualization
+	// [issues-33] we allow sigedin_collections to be read as items for m2m collection visualization
 	if (
-		req.params['collection']!.valueOf() !== 'directus_collections' &&
-		req.params['collection']!.startsWith('directus_')
+		req.params['collection']!.valueOf() !== 'sigedin_collections' &&
+		req.params['collection']!.startsWith('sigedin_')
 	)
 		throw new ForbiddenException();
 
@@ -102,7 +102,7 @@ router.get(
 	'/:collection/:pk',
 	collectionExists,
 	asyncHandler(async (req, res, next) => {
-		if (req.params['collection']!.startsWith('directus_')) throw new ForbiddenException();
+		if (req.params['collection']!.startsWith('sigedin_')) throw new ForbiddenException();
 
 		const service = new ItemsService(req.collection, {
 			accountability: req.accountability,
@@ -125,7 +125,7 @@ router.patch(
 	collectionExists,
 	validateBatch('update'),
 	asyncHandler(async (req, res, next) => {
-		if (req.params['collection']!.startsWith('directus_')) throw new ForbiddenException();
+		if (req.params['collection']!.startsWith('sigedin_')) throw new ForbiddenException();
 
 		const service = new ItemsService(req.collection, {
 			accountability: req.accountability,
@@ -171,7 +171,7 @@ router.patch(
 	'/:collection/:pk',
 	collectionExists,
 	asyncHandler(async (req, res, next) => {
-		if (req.params['collection']!.startsWith('directus_')) throw new ForbiddenException();
+		if (req.params['collection']!.startsWith('sigedin_')) throw new ForbiddenException();
 
 		if (req.singleton) {
 			throw new RouteNotFoundException(req.path);
@@ -205,7 +205,7 @@ router.delete(
 	collectionExists,
 	validateBatch('delete'),
 	asyncHandler(async (req, _res, next) => {
-		if (req.params['collection']!.startsWith('directus_')) throw new ForbiddenException();
+		if (req.params['collection']!.startsWith('sigedin_')) throw new ForbiddenException();
 
 		const service = new ItemsService(req.collection, {
 			accountability: req.accountability,
@@ -230,7 +230,7 @@ router.delete(
 	'/:collection/:pk',
 	collectionExists,
 	asyncHandler(async (req, _res, next) => {
-		if (req.params['collection']!.startsWith('directus_')) throw new ForbiddenException();
+		if (req.params['collection']!.startsWith('sigedin_')) throw new ForbiddenException();
 
 		const service = new ItemsService(req.collection, {
 			accountability: req.accountability,

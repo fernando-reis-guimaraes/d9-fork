@@ -1,4 +1,4 @@
-table: directus_relations
+table: sigedin_relations
 
 fields:
   - field: id

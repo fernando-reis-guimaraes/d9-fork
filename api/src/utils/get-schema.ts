@@ -67,7 +67,7 @@ async function getDatabaseSchema(database: Knex, schemaInspector: SchemaInspecto
 	const collections = [
 		...(await database
 			.select('collection', 'singleton', 'note', 'sort_field', 'accountability', 'check_filter')
-			.from('directus_collections')),
+			.from('sigedin_collections')),
 		...systemCollectionRows,
 	];
 
@@ -129,7 +129,7 @@ async function getDatabaseSchema(database: Knex, schemaInspector: SchemaInspecto
 					validation: string | Record<string, any> | null;
 				}[]
 			>('id', 'collection', 'field', 'special', 'note', 'validation')
-			.from('directus_fields')),
+			.from('sigedin_fields')),
 		...systemFieldRows,
 	].filter((field) => (field.special ? toArray(field.special) : []).includes('no-data') === false);
 

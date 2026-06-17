@@ -2,11 +2,11 @@ import type { CollectionsOverview, Relation } from '@wbce-d9/types';
 
 export const systemSchema = {
 	collections: {
-		directus_users: {
-			collection: 'directus_users',
+		sigedin_users: {
+			collection: 'sigedin_users',
 			primary: 'id',
 			singleton: false,
-			note: '$t:directus_collection.directus_users',
+			note: '$t:sigedin_collection.sigedin_users',
 			sortField: null,
 			accountability: null,
 			fields: {
@@ -54,11 +54,11 @@ export const systemSchema = {
 				},
 			},
 		},
-		directus_files: {
-			collection: 'directus_files',
+		sigedin_files: {
+			collection: 'sigedin_files',
 			primary: 'id',
 			singleton: false,
-			note: '$t:directus_collection.directus_files',
+			note: '$t:sigedin_collection.sigedin_files',
 			sortField: null,
 			accountability: null,
 			fields: {
@@ -109,13 +109,13 @@ export const systemSchema = {
 	} as CollectionsOverview,
 	relations: [
 		{
-			collection: 'directus_files',
+			collection: 'sigedin_files',
 			field: 'uploaded_by',
-			related_collection: 'directus_users',
+			related_collection: 'sigedin_users',
 			schema: {
-				table: 'directus_files',
+				table: 'sigedin_files',
 				column: 'uploaded_by',
-				foreign_key_table: 'directus_users',
+				foreign_key_table: 'sigedin_users',
 				foreign_key_column: 'id',
 				on_update: 'NO ACTION',
 				on_delete: 'NO ACTION',
@@ -123,9 +123,9 @@ export const systemSchema = {
 			},
 			meta: {
 				system: true,
-				many_collection: 'directus_files',
+				many_collection: 'sigedin_files',
 				many_field: 'uploaded_by',
-				one_collection: 'directus_users',
+				one_collection: 'sigedin_users',
 				one_field: 'items',
 				one_allowed_collections: null,
 				one_collection_field: null,

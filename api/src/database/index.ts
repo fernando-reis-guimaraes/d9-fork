@@ -239,10 +239,10 @@ export function getDatabaseClient(database?: Knex): DatabaseClient {
 export async function isInstalled(): Promise<boolean> {
 	const inspector = getSchemaInspector();
 
-	// The existence of a directus_collections table alone isn't a "proper" check to see if everything
+	// The existence of a sigedin_collections table alone isn't a "proper" check to see if everything
 	// is installed correctly of course, but it's safe enough to assume that this collection only
 	// exists when Directus is properly installed.
-	return await inspector.hasTable('directus_collections');
+	return await inspector.hasTable('sigedin_collections');
 }
 
 export async function validateMigrations(): Promise<boolean> {
@@ -266,7 +266,7 @@ export async function validateMigrations(): Promise<boolean> {
 
 		const requiredVersions = migrationFiles.map((filePath) => filePath.split('-')[0]);
 
-		const completedVersions = (await database.select('version').from('directus_migrations')).map(
+		const completedVersions = (await database.select('version').from('sigedin_migrations')).map(
 			({ version }) => version
 		);
 

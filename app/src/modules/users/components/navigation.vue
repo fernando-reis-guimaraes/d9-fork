@@ -57,7 +57,7 @@ export default defineComponent({
 
 		const collection = computed(() =>
 			collectionsStore.crudSafeSystemCollections.find(
-				(collection: Collection) => collection.collection === 'directus_users'
+				(collection: Collection) => collection.collection === 'sigedin_users'
 			)
 		);
 

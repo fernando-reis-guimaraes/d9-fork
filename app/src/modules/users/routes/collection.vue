@@ -10,7 +10,7 @@
 		:filter-user="filter"
 		:filter-system="roleFilter"
 		:search="search"
-		collection="directus_users"
+		collection="sigedin_users"
 		:reset-preset="resetPreset"
 	>
 		<private-view :title="bookmark ? bookmarkTitle : title">
@@ -78,7 +78,7 @@
 			</template>
 
 			<template #actions>
-				<search-input v-model="search" v-model:filter="filter" collection="directus_users" />
+				<search-input v-model="search" v-model:filter="filter" collection="sigedin_users" />
 
 				<v-dialog v-if="selection.length > 0" v-model="confirmDelete" @esc="confirmDelete = false">
 					<template #activator="{ on }">
@@ -144,7 +144,7 @@
 			</template>
 
 			<template #navigation>
-				<users-navigation :current-role="role" current-collection="directus_users" />
+				<users-navigation :current-role="role" current-collection="sigedin_users" />
 			</template>
 
 			<v-info
@@ -202,7 +202,7 @@
 			<drawer-batch
 				v-model:active="batchEditActive"
 				:primary-keys="selection"
-				collection="directus_users"
+				collection="sigedin_users"
 				@refresh="refresh"
 			/>
 
@@ -216,7 +216,7 @@
 				<component :is="`layout-sidebar-${layout}`" v-bind="layoutState" />
 				<refresh-sidebar-detail v-model="refreshInterval" @refresh="refresh" />
 				<export-sidebar-detail
-					collection="directus_users"
+					collection="sigedin_users"
 					:layout-query="layoutQuery"
 					:filter="mergeFilters(filter, roleFilter)"
 					:search="search"
@@ -296,7 +296,7 @@ const {
 	refreshInterval,
 	busy: bookmarkSaving,
 	clearLocalSave,
-} = usePreset(ref('directus_users'), bookmark);
+} = usePreset(ref('sigedin_users'), bookmark);
 
 const { addNewLink } = useLinks();
 
@@ -329,11 +329,11 @@ const canInviteUsers = computed(() => {
 	if (isAdmin) return true;
 
 	const usersCreatePermission = permissionsStore.permissions.find(
-		(permission) => permission.collection === 'directus_users' && permission.action === 'create'
+		(permission) => permission.collection === 'sigedin_users' && permission.action === 'create'
 	);
 
 	const rolesReadPermission = permissionsStore.permissions.find(
-		(permission) => permission.collection === 'directus_roles' && permission.action === 'read'
+		(permission) => permission.collection === 'sigedin_roles' && permission.action === 'read'
 	);
 
 	return !!usersCreatePermission && !!rolesReadPermission;
@@ -458,7 +458,7 @@ function usePermissions() {
 		if (admin) return true;
 
 		const updatePermissions = permissionsStore.permissions.find(
-			(permission) => permission.action === 'update' && permission.collection === 'directus_users'
+			(permission) => permission.action === 'update' && permission.collection === 'sigedin_users'
 		);
 
 		return !!updatePermissions;
@@ -469,7 +469,7 @@ function usePermissions() {
 		if (admin) return true;
 
 		const deletePermissions = permissionsStore.permissions.find(
-			(permission) => permission.action === 'delete' && permission.collection === 'directus_users'
+			(permission) => permission.action === 'delete' && permission.collection === 'sigedin_users'
 		);
 
 		return !!deletePermissions;
@@ -480,7 +480,7 @@ function usePermissions() {
 		if (admin) return true;
 
 		const createPermissions = permissionsStore.permissions.find(
-			(permission) => permission.action === 'create' && permission.collection === 'directus_users'
+			(permission) => permission.action === 'create' && permission.collection === 'sigedin_users'
 		);
 
 		return !!createPermissions;

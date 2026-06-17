@@ -149,7 +149,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	settings: directus_settings
+	settings: sigedin_settings
 }
 ```
 
@@ -203,7 +203,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_settings(data: update_directus_settings_input!): directus_settings
+	update_settings(data: update_sigedin_settings_input!): sigedin_settings
 }
 ```
 

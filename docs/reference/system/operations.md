@@ -99,7 +99,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	operations: [directus_operations]
+	operations: [sigedin_operations]
 }
 ```
 
@@ -149,7 +149,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	operations_by_id(id: ID!): directus_operations
+	operations_by_id(id: ID!): sigedin_operations
 }
 ```
 
@@ -209,7 +209,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_operations_item(data: create_directus_operations_input!): directus_operations
+	create_operations_item(data: create_sigedin_operations_input!): sigedin_operations
 }
 ```
 
@@ -276,7 +276,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_operations_items(data: [create_directus_operations_input!]!): [directus_operations]
+	create_operations_items(data: [create_sigedin_operations_input!]!): [sigedin_operations]
 }
 ```
 
@@ -347,7 +347,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_operations_item(id: ID!, data: update_directus_operations_input): directus_operations
+	update_operations_item(id: ID!, data: update_sigedin_operations_input): sigedin_operations
 }
 ```
 
@@ -411,7 +411,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_operations_items(ids: [ID!]!, data: update_directus_operations_input): [directus_operations]
+	update_operations_items(ids: [ID!]!, data: update_sigedin_operations_input): [sigedin_operations]
 }
 ```
 

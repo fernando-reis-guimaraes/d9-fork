@@ -441,7 +441,7 @@ function usePreset() {
 }
 
 function useForm() {
-	const systemCollectionWhiteList = ['directus_users', 'directus_files', 'directus_activity'];
+	const systemCollectionWhiteList = ['sigedin_users', 'sigedin_files', 'sigedin_activity'];
 
 	const fields = computed(() => [
 		{
@@ -457,7 +457,7 @@ function useForm() {
 							value: collection.collection,
 						}))
 						.filter((option) => {
-							if (option.value.startsWith('directus_')) return systemCollectionWhiteList.includes(option.value);
+							if (option.value.startsWith('sigedin_')) return systemCollectionWhiteList.includes(option.value);
 
 							return true;
 						}),

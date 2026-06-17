@@ -44,7 +44,7 @@ export async function formulateCheckClause(knex: Knex, collection: string, filte
 	checkClause = checkClause.replaceAll('?', '\\?');
 
 	await knex.schema.table(collection, (table) => {
-		table.check(checkClause, undefined, 'directus_constraint');
+		table.check(checkClause, undefined, 'sigedin_constraint');
 	});
 }
 
@@ -54,7 +54,7 @@ export async function applyCollectionCheckConstraint(
 	filter: Filter | null,
 	schema: SchemaOverview
 ): Promise<void> {
-	await knex.raw(`ALTER TABLE ?? DROP CONSTRAINT IF EXISTS "directus_constraint"`, [collection]);
+	await knex.raw(`ALTER TABLE ?? DROP CONSTRAINT IF EXISTS "sigedin_constraint"`, [collection]);
 
 	if (!filter || Object.keys(filter).length === 0) {
 		return;

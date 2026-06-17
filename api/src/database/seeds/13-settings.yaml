@@ -1,4 +1,4 @@
-table: directus_settings
+table: sigedin_settings
 
 columns:
   id:
@@ -18,17 +18,17 @@ columns:
   project_logo:
     type: uuid
     references:
-      table: directus_files
+      table: sigedin_files
       column: id
   public_foreground:
     type: uuid
     references:
-      table: directus_files
+      table: sigedin_files
       column: id
   public_background:
     type: uuid
     references:
-      table: directus_files
+      table: sigedin_files
       column: id
   public_note:
     type: text

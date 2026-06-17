@@ -49,7 +49,7 @@ The options used by the layout. This structure is based on the used layout.
 	"bookmark": null,
 	"user": "410b5772-e63f-4ae6-9ea2-39c3a31bd6ca",
 	"role": null,
-	"collection": "directus_activity",
+	"collection": "sigedin_activity",
 	"search": null,
 	"filters": [],
 	"layout": "tabular",
@@ -112,7 +112,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	presets: [directus_presets]
+	presets: [sigedin_presets]
 }
 ```
 
@@ -161,7 +161,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	presets_by_id(id: ID!): directus_presets
+	presets_by_id(id: ID!): sigedin_presets
 }
 ```
 
@@ -220,7 +220,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_presets_item(data: create_directus_presets_input!): directus_presets
+	create_presets_item(data: create_sigedin_presets_input!): sigedin_presets
 }
 ```
 
@@ -266,7 +266,7 @@ POST /presets
 
 [
 	{
-		"collection": "directus_files",
+		"collection": "sigedin_files",
 		"user": "410b5772-e63f-4ae6-9ea2-39c3a31bd6ca",
 		"layout": "cards",
 		"search": "Directus"
@@ -287,7 +287,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_presets_items(data: [create_directus_presets_input!]!): [directus_presets]
+	create_presets_items(data: [create_sigedin_presets_input!]!): [sigedin_presets]
 }
 ```
 
@@ -298,7 +298,7 @@ mutation {
 	create_presets_items(
 		data: [
 			{
-				collection: "directus_files"
+				collection: "sigedin_files"
 				user: "410b5772-e63f-4ae6-9ea2-39c3a31bd6ca"
 				layout: "cards"
 				search: "Directus"
@@ -354,7 +354,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_presets_item(id: ID!, data: update_directus_presets_input): directus_presets
+	update_presets_item(id: ID!, data: update_sigedin_presets_input): sigedin_presets
 }
 ```
 
@@ -418,7 +418,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_presets_items(ids: [ID!]!, data: update_directus_presets_input): [directus_presets]
+	update_presets_items(ids: [ID!]!, data: update_sigedin_presets_input): [sigedin_presets]
 }
 ```
 

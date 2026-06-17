@@ -158,7 +158,7 @@ describe('/auth/login/saml', () => {
 						.join(';');
 
 					// Assert
-					expect(cookies).toMatch(/directus_refresh_token/);
+					expect(cookies).toMatch(/sigedin_refresh_token/);
 				});
 			});
 		});

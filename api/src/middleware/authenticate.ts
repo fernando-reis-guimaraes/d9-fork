@@ -63,8 +63,8 @@ export const handler = async (req: Request, _res: Response, next: NextFunction) 
 						user_id: 'u.id',
 						session_id: 's.session_id',
 					})
-					.from('directus_sessions AS s')
-					.leftJoin('directus_users AS u', 's.user', 'u.id')
+					.from('sigedin_sessions AS s')
+					.leftJoin('sigedin_users AS u', 's.user', 'u.id')
 					.where('s.session_id', payload.session_id)
 					.andWhere('s.expires', '>=', new Date())
 					.first();
@@ -85,15 +85,15 @@ export const handler = async (req: Request, _res: Response, next: NextFunction) 
 				// Try finding the user with the provided token
 				const user = await database
 					.select(
-						'directus_users.id',
-						'directus_users.role',
-						'directus_roles.admin_access',
-						'directus_roles.app_access'
+						'sigedin_users.id',
+						'sigedin_users.role',
+						'sigedin_roles.admin_access',
+						'sigedin_roles.app_access'
 					)
-					.from('directus_users')
-					.leftJoin('directus_roles', 'directus_users.role', 'directus_roles.id')
+					.from('sigedin_users')
+					.leftJoin('sigedin_roles', 'sigedin_users.role', 'sigedin_roles.id')
 					.where({
-						'directus_users.token': req.token,
+						'sigedin_users.token': req.token,
 						status: 'active',
 					})
 					.first();

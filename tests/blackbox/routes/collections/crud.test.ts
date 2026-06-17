@@ -83,17 +83,17 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 									.sort();
 
 								const appAccessPermissions = [
-									'directus_activity',
-									'directus_collections',
-									'directus_fields',
-									'directus_notifications',
-									'directus_permissions',
-									'directus_presets',
-									'directus_relations',
-									'directus_roles',
-									'directus_settings',
-									'directus_shares',
-									'directus_users',
+									'sigedin_activity',
+									'sigedin_collections',
+									'sigedin_fields',
+									'sigedin_notifications',
+									'sigedin_permissions',
+									'sigedin_presets',
+									'sigedin_relations',
+									'sigedin_roles',
+									'sigedin_settings',
+									'sigedin_shares',
+									'sigedin_users',
 								];
 
 								expect(response.statusCode).toBe(200);
@@ -128,7 +128,7 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 			afterEach(async () => {
 				const db = databases.get(currentVendor)!;
 				await db.schema.dropTableIfExists(TEST_COLLECTION_NAME);
-				await db('directus_collections').del().where({ collection: TEST_COLLECTION_NAME });
+				await db('sigedin_collections').del().where({ collection: TEST_COLLECTION_NAME });
 			});
 
 			describe('Creates a new regular collection', () => {
@@ -251,7 +251,7 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 
 				for (const collection of collectionNames) {
 					await db.schema.dropTableIfExists(collection);
-					await db('directus_collections').del().where({ collection });
+					await db('sigedin_collections').del().where({ collection });
 				}
 			});
 
@@ -371,7 +371,7 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 				afterEach(async () => {
 					const db = databases.get(currentVendor)!;
 					await db.schema.dropTableIfExists(TEST_CHECK_COLLECTION);
-					await db('directus_collections').del().where({ collection: TEST_CHECK_COLLECTION });
+					await db('sigedin_collections').del().where({ collection: TEST_CHECK_COLLECTION });
 				});
 
 				//For now, this works only for postgres db
@@ -543,7 +543,7 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 			afterEach(async () => {
 				const db = databases.get(currentVendor)!;
 				await db.schema.dropTableIfExists(TEST_COLLECTION_NAME);
-				await db('directus_collections').del().where({ collection: TEST_COLLECTION_NAME });
+				await db('sigedin_collections').del().where({ collection: TEST_COLLECTION_NAME });
 			});
 
 			describe('Deletes a regular collection', () => {
@@ -595,7 +595,7 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 								.set('Authorization', `Bearer ${USER[userKey].TOKEN}`);
 
 							if (userKey === USER.ADMIN.KEY) {
-								expect(await db('directus_collections').select().where({ collection: TEST_FOLDER_NAME })).toHaveLength(
+								expect(await db('sigedin_collections').select().where({ collection: TEST_FOLDER_NAME })).toHaveLength(
 									1
 								);
 							}
@@ -610,7 +610,7 @@ describe.each(PRIMARY_KEY_TYPES)('/collections', (pkType) => {
 								expect(response.statusCode).toBe(204);
 								expect(response.body).toEqual({});
 
-								expect(await db('directus_collections').select().where({ collection: TEST_FOLDER_NAME })).toHaveLength(
+								expect(await db('sigedin_collections').select().where({ collection: TEST_FOLDER_NAME })).toHaveLength(
 									0
 								);
 							} else {

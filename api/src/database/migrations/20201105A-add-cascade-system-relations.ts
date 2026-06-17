@@ -2,107 +2,107 @@ import type { Knex } from 'knex';
 
 const updates = [
 	{
-		table: 'directus_fields',
+		table: 'sigedin_fields',
 		constraints: [
 			{
 				column: 'group',
-				references: 'directus_fields.id',
+				references: 'sigedin_fields.id',
 			},
 		],
 	},
 	{
-		table: 'directus_files',
+		table: 'sigedin_files',
 		constraints: [
 			{
 				column: 'folder',
-				references: 'directus_folders.id',
+				references: 'sigedin_folders.id',
 			},
 			{
 				column: 'uploaded_by',
-				references: 'directus_users.id',
+				references: 'sigedin_users.id',
 			},
 			{
 				column: 'modified_by',
-				references: 'directus_users.id',
+				references: 'sigedin_users.id',
 			},
 		],
 	},
 	{
-		table: 'directus_folders',
+		table: 'sigedin_folders',
 		constraints: [
 			{
 				column: 'parent',
-				references: 'directus_folders.id',
+				references: 'sigedin_folders.id',
 			},
 		],
 	},
 	{
-		table: 'directus_permissions',
+		table: 'sigedin_permissions',
 		constraints: [
 			{
 				column: 'role',
-				references: 'directus_roles.id',
+				references: 'sigedin_roles.id',
 			},
 		],
 	},
 	{
-		table: 'directus_presets',
+		table: 'sigedin_presets',
 		constraints: [
 			{
 				column: 'user',
-				references: 'directus_users.id',
+				references: 'sigedin_users.id',
 			},
 			{
 				column: 'role',
-				references: 'directus_roles.id',
+				references: 'sigedin_roles.id',
 			},
 		],
 	},
 	{
-		table: 'directus_revisions',
+		table: 'sigedin_revisions',
 		constraints: [
 			{
 				column: 'activity',
-				references: 'directus_activity.id',
+				references: 'sigedin_activity.id',
 			},
 			{
 				column: 'parent',
-				references: 'directus_revisions.id',
+				references: 'sigedin_revisions.id',
 			},
 		],
 	},
 	{
-		table: 'directus_sessions',
+		table: 'sigedin_sessions',
 		constraints: [
 			{
 				column: 'user',
-				references: 'directus_users.id',
+				references: 'sigedin_users.id',
 			},
 		],
 	},
 	{
-		table: 'directus_settings',
+		table: 'sigedin_settings',
 		constraints: [
 			{
 				column: 'project_logo',
-				references: 'directus_files.id',
+				references: 'sigedin_files.id',
 			},
 			{
 				column: 'public_foreground',
-				references: 'directus_files.id',
+				references: 'sigedin_files.id',
 			},
 			{
 				column: 'public_background',
-				references: 'directus_files.id',
+				references: 'sigedin_files.id',
 			},
 		],
 	},
 	{
-		table: 'directus_users',
+		table: 'sigedin_users',
 		constraints: [
 			{
 				column: 'role',
-				references: 'directus_roles.id',
+				references: 'sigedin_roles.id',
 			},
 		],
 	},

@@ -79,7 +79,7 @@ logoutReason:
   SESSION_EXPIRED: Lota útrunnin
 public_label: Almennt
 not_allowed: Ekki Leyft
-directus_version: Directus Útgáfa
+sigedin_version: Directus Útgáfa
 os_type: Gerð stýrikerfis
 os_version: Útgáfa stýrikerfis
 os_uptime: Uppitími stýrikerfis
@@ -268,14 +268,14 @@ none: Ekkert
 cancel: Hætta við
 content: Efni
 fields:
-  directus_activity:
+  sigedin_activity:
     origin: Uppruni
-  directus_collections:
+  sigedin_collections:
     icon: Íkon
     note: Minnispunktur
     color: Litur
     hidden: Falið
-  directus_files:
+  sigedin_files:
     title: Titill
     description: Lýsing
     location: Staðsetning
@@ -289,7 +289,7 @@ fields:
     uploaded_on: Upphlaðið Þann
     height: Hæð
     duration: Tímalengd
-  directus_users:
+  sigedin_users:
     first_name: Fornafn
     last_name: Eftirnafn
     email: Tölvupóstur
@@ -309,38 +309,38 @@ fields:
     role: Hlutverk
     last_page: Síðasta Síða
     last_access: Síðasta Aðgengi
-  directus_settings:
+  sigedin_settings:
     project_name: Verkefni Nafn
-  directus_shares:
+  sigedin_shares:
     name: Nafn
     password: Lykilorð
-  directus_fields:
+  sigedin_fields:
     note: Minnispunktur
-  directus_roles:
+  sigedin_roles:
     name: Hlutverks Nafn
     description: Lýsing
-  directus_webhooks:
+  sigedin_webhooks:
     name: Nafn
     status: Staða
 field_options:
-  directus_settings:
+  sigedin_settings:
     security_divider_title: Öryggi
-  directus_activity:
+  sigedin_activity:
     login: Skrá inn
     create: Búa til
-  directus_collections:
+  sigedin_collections:
     language: Tungumál
     sort_divider: Flokka
-  directus_roles:
+  sigedin_roles:
     fields:
       icon_name: Íkon
       name_name: Nafn
       name_placeholder: Skráðu titil...
       link_name: Hlekkur
-  directus_users:
+  sigedin_users:
     preferences_divider: Notandi Stillingar
     status_dropdown_draft: Drög
-  directus_webhooks:
+  sigedin_webhooks:
     actions_create: Búa til
     actions_update: Uppfæra
     actions_delete: Eyða

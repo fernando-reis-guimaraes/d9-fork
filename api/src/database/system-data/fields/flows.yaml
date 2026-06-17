@@ -1,4 +1,4 @@
-table: directus_flows
+table: sigedin_flows
 
 fields:
   - field: id

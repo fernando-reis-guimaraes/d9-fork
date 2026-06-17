@@ -3,7 +3,7 @@ import { cssVar } from '@wbce-d9/utils/browser';
 export function getMapStyle() {
 	return [
 		{
-			id: '__directus_polygons_outline',
+			id: '__sigedin_polygons_outline',
 			type: 'line',
 			source: '__directus',
 			filter: ['all', ['!has', 'point_count'], ['==', '$type', 'Polygon']],
@@ -23,7 +23,7 @@ export function getMapStyle() {
 			},
 		},
 		{
-			id: '__directus_polygons',
+			id: '__sigedin_polygons',
 			type: 'fill',
 			source: '__directus',
 			filter: ['all', ['!has', 'point_count'], ['==', '$type', 'Polygon']],
@@ -40,7 +40,7 @@ export function getMapStyle() {
 			},
 		},
 		{
-			id: '__directus_lines',
+			id: '__sigedin_lines',
 			type: 'line',
 			source: '__directus',
 			filter: ['all', ['!has', 'point_count'], ['==', '$type', 'LineString']],
@@ -57,7 +57,7 @@ export function getMapStyle() {
 			},
 		},
 		{
-			id: '__directus_points_shadow',
+			id: '__sigedin_points_shadow',
 			type: 'circle',
 			source: '__directus',
 			filter: ['all', ['!has', 'point_count'], ['==', '$type', 'Point']],
@@ -70,7 +70,7 @@ export function getMapStyle() {
 			},
 		},
 		{
-			id: '__directus_points',
+			id: '__sigedin_points',
 			type: 'circle',
 			source: '__directus',
 			filter: ['all', ['!has', 'point_count'], ['==', '$type', 'Point']],
@@ -90,7 +90,7 @@ export function getMapStyle() {
 			},
 		},
 		{
-			id: '__directus_clusters',
+			id: '__sigedin_clusters',
 			type: 'circle',
 			source: '__directus',
 			filter: ['has', 'point_count'],
@@ -101,7 +101,7 @@ export function getMapStyle() {
 			},
 		},
 		{
-			id: '__directus_cluster_count',
+			id: '__sigedin_cluster_count',
 			type: 'symbol',
 			source: '__directus',
 			filter: ['has', 'point_count'],

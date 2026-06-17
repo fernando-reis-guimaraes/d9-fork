@@ -1,5 +1,5 @@
-# directus_permissions isn't surfaced in the app
-table: directus_permissions
+# sigedin_permissions isn't surfaced in the app
+table: sigedin_permissions
 
 fields:
   - field: permissions

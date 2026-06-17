@@ -8,7 +8,7 @@ const conditionalFilter2 = { count: { _gt: 42 } } as Filter;
 
 const permissionTemplate = {
 	role: null,
-	collection: 'directus_users',
+	collection: 'sigedin_users',
 	permissions: null,
 	validation: null,
 	presets: null,

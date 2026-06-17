@@ -1,4 +1,4 @@
-table: directus_presets
+table: sigedin_presets
 
 columns:
   id:
@@ -9,18 +9,18 @@ columns:
   user:
     type: uuid
     references:
-      table: directus_users
+      table: sigedin_users
       column: id
   role:
     type: uuid
     references:
-      table: directus_roles
+      table: sigedin_roles
       column: id
   collection:
     type: string
     length: 64
     references:
-      table: directus_collections
+      table: sigedin_collections
       column: collection
   search:
     type: string

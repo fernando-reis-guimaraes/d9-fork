@@ -20,8 +20,8 @@ const defaultPreset: Omit<Preset, 'collection'> = {
 };
 
 const systemDefaults: Record<string, Partial<Preset>> = {
-	directus_files: {
-		collection: 'directus_files',
+	sigedin_files: {
+		collection: 'sigedin_files',
 		layout: 'cards',
 		layout_query: {
 			cards: {
@@ -38,8 +38,8 @@ const systemDefaults: Record<string, Partial<Preset>> = {
 			},
 		},
 	},
-	directus_users: {
-		collection: 'directus_users',
+	sigedin_users: {
+		collection: 'sigedin_users',
 		layout: 'cards',
 		layout_query: {
 			cards: {
@@ -55,8 +55,8 @@ const systemDefaults: Record<string, Partial<Preset>> = {
 			},
 		},
 	},
-	directus_activity: {
-		collection: 'directus_activity',
+	sigedin_activity: {
+		collection: 'sigedin_activity',
 		layout: 'tabular',
 		layout_query: {
 			tabular: {
@@ -75,8 +75,8 @@ const systemDefaults: Record<string, Partial<Preset>> = {
 			},
 		},
 	},
-	directus_roles: {
-		collection: 'directus_roles',
+	sigedin_roles: {
+		collection: 'sigedin_roles',
 		layout: 'tabular',
 		layout_query: {
 			tabular: {
@@ -93,8 +93,8 @@ const systemDefaults: Record<string, Partial<Preset>> = {
 			},
 		},
 	},
-	directus_webhooks: {
-		collection: 'directus_webhooks',
+	sigedin_webhooks: {
+		collection: 'sigedin_webhooks',
 		layout: 'tabular',
 		layout_query: {
 			tabular: {

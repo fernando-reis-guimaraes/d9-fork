@@ -20,11 +20,11 @@ export const useCollectionsStore = defineStore({
 	getters: {
 		visibleCollections(): Collection[] {
 			return this.collections
-				.filter(({ collection }) => collection.startsWith('directus_') === false)
+				.filter(({ collection }) => collection.startsWith('sigedin_') === false)
 				.filter((collection) => collection.meta && collection.meta?.hidden !== true);
 		},
 		allCollections(): Collection[] {
-			return this.collections.filter(({ collection }) => collection.startsWith('directus_') === false);
+			return this.collections.filter(({ collection }) => collection.startsWith('sigedin_') === false);
 		},
 		databaseCollections(): Collection[] {
 			return this.allCollections.filter((collection) => collection.schema);
@@ -32,7 +32,7 @@ export const useCollectionsStore = defineStore({
 		crudSafeSystemCollections(): Collection[] {
 			return orderBy(
 				this.collections.filter((collection) => {
-					return collection.collection.startsWith('directus_') === true;
+					return collection.collection.startsWith('sigedin_') === true;
 				}),
 				['collection'],
 				['asc']

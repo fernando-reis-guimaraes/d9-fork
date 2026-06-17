@@ -29,14 +29,14 @@ export const D9_LOGO = `
  * These are the system endpoints that don't have full/regular CRUD operations available.
  */
 export const COLLECTIONS_DENY_LIST = [
-	'directus_activity',
-	'directus_collections',
-	'directus_fields',
-	'directus_migrations',
-	'directus_relations',
-	'directus_revisions',
-	'directus_sessions',
-	'directus_settings',
+	'sigedin_activity',
+	'sigedin_collections',
+	'sigedin_fields',
+	'sigedin_migrations',
+	'sigedin_relations',
+	'sigedin_revisions',
+	'sigedin_sessions',
+	'sigedin_settings',
 ];
 
 export const MODULE_BAR_DEFAULT = [

@@ -288,12 +288,12 @@ All the `DB_POOL__` prefixed options are passed to [`tarn.js`](https://github.co
 | `ACCESS_TOKEN_COOKIE_DOMAIN`     | Which domain to use for the access cookie. Useful for development mode.                                                                                                                              | --                        |
 | `ACCESS_TOKEN_COOKIE_SECURE`     | Whether or not to use a secure cookie for the access token in cookie mode.                                                                                                                           | `false`                   |
 | `ACCESS_TOKEN_COOKIE_SAME_SITE`  | Value for `sameSite` in the access token cookie when in cookie mode.                                                                                                                                 | `lax`                     |
-| `ACCESS_TOKEN_COOKIE_NAME`       | Name of access token cookie .                                                                                                                                                                        | `directus_access_token`   |
+| `ACCESS_TOKEN_COOKIE_NAME`       | Name of access token cookie .                                                                                                                                                                        | `sigedin_access_token`   |
 | `REFRESH_TOKEN_TTL`              | The duration that the refresh token is valid, and also how long users stay logged-in to the App.                                                                                                     | `7d`                      |
 | `REFRESH_TOKEN_COOKIE_DOMAIN`    | Which domain to use for the refresh cookie. Useful for development mode.                                                                                                                             | --                        |
 | `REFRESH_TOKEN_COOKIE_SECURE`    | Whether or not to use a secure cookie for the refresh token in cookie mode.                                                                                                                          | `false`                   |
 | `REFRESH_TOKEN_COOKIE_SAME_SITE` | Value for `sameSite` in the refresh token cookie when in cookie mode.                                                                                                                                | `lax`                     |
-| `REFRESH_TOKEN_COOKIE_NAME`      | Name of refresh token cookie .                                                                                                                                                                       | `directus_refresh_token`  |
+| `REFRESH_TOKEN_COOKIE_NAME`      | Name of refresh token cookie .                                                                                                                                                                       | `sigedin_refresh_token`  |
 | `REFRESH_TOKEN_OVERLAP_DURATION` | Duration allowing concurrent refresh requests to receive the same new token, preventing authentication failures when multiple requests refresh simultaneously                                        | `10s`                     |
 | `LOGIN_STALL_TIME`               | The duration in milliseconds that a login request will be stalled for, and it should be greater than the time taken for a login request with an invalid password                                     | `500`                     |
 | `PASSWORD_RESET_URL_ALLOW_LIST`  | List of URLs that can be used [as `reset_url` in /password/request](/reference/authentication#request-password-reset)                                                                                | --                        |
@@ -542,7 +542,7 @@ By default, d9 stores all uploaded files locally on disk. However, you can also 
 Google Cloud Storage, Azure, or Cloudinary. You can also configure _multiple_ storage adapters at the same time. This
 allows you to choose where files are being uploaded on a file-by-file basis. In the Admin App, files will automatically
 be uploaded to the first configured storage location (in this case `local`). The used storage location is saved under
-`storage` in `directus_files`.
+`storage` in `sigedin_files`.
 
 ::: tip File Storage Default
 

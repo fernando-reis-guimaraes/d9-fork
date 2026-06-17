@@ -1,4 +1,4 @@
-table: directus_shares
+table: sigedin_shares
 
 fields:
   - field: id

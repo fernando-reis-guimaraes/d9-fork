@@ -27,7 +27,7 @@ The d9 data type of the field. See [Types](/getting-started/glossary#types) for 
 d9 metadata, primarily used in the Admin App. Meta is optional.
 
 `id` **integer**\
-Primary key of the metadata row in `directus_fields`.
+Primary key of the metadata row in `sigedin_fields`.
 
 `collection` **string**\
 The name of the collection this field resides in.
@@ -72,7 +72,7 @@ Short description displayed in the Admin App.
 #### Schema
 
 "Raw" database information. Based on the database vendor used, different information might be returned. The following
-are available for all drivers. Note: schema is optional. If a field exist in directus_fields, but not in the database,
+are available for all drivers. Note: schema is optional. If a field exist in sigedin_fields, but not in the database,
 it's an alias commonly used for relational (O2M) or presentation purposes in the Admin App.
 
 `name` **string**\
@@ -178,7 +178,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	fields: [directus_fields]
+	fields: [sigedin_fields]
 }
 ```
 
@@ -227,7 +227,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	fields_in_collection(collection: String!): directus_fields
+	fields_in_collection(collection: String!): sigedin_fields
 }
 ```
 
@@ -276,7 +276,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	fields_by_name(collection: String!, field: String!): directus_fields
+	fields_by_name(collection: String!, field: String!): sigedin_fields
 }
 ```
 
@@ -351,7 +351,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_fields_item(collection: String!, data: create_directus_fields_input!): directus_fields
+	create_fields_item(collection: String!, data: create_sigedin_fields_input!): sigedin_fields
 }
 ```
 
@@ -432,7 +432,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_fields_item(collection: String!, field: String!, data: update_directus_fields_input!): directus_fields
+	update_fields_item(collection: String!, field: String!, data: update_sigedin_fields_input!): sigedin_fields
 }
 ```
 

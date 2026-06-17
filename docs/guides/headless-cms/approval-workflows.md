@@ -2,7 +2,7 @@
 description:
 tags: []
 skill_level:
-directus_version: 9.18.1
+sigedin_version: 9.18.1
 author_override:
 author: Eron Powell
 ---
@@ -17,7 +17,7 @@ author: Eron Powell
 
 <!-- **Skill Level:** {{$frontmatter.skill_level}}\ -->
 
-**d9 Version:** {{$frontmatter.directus_version}}
+**d9 Version:** {{$frontmatter.sigedin_version}}
 
 <!-- **Tags:** {{$frontmatter.tags.join(", ")}} -->
 

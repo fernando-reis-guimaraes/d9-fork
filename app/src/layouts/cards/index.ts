@@ -42,7 +42,7 @@ export default defineLayout<LayoutOptions, LayoutQuery>({
 					return (
 						relation.collection === props.collection &&
 						relation.field === field.field &&
-						relation.related_collection === 'directus_files'
+						relation.related_collection === 'sigedin_files'
 					);
 				});
 
@@ -175,7 +175,7 @@ export default defineLayout<LayoutOptions, LayoutQuery>({
 					fields.push(`${imageSource.value}.id`);
 				}
 
-				if (props.collection === 'directus_files' && imageSource.value === '$thumbnail') {
+				if (props.collection === 'sigedin_files' && imageSource.value === '$thumbnail') {
 					fields.push('modified_on');
 					fields.push('type');
 				}

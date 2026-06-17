@@ -1,4 +1,4 @@
-table: directus_webhooks
+table: sigedin_webhooks
 
 columns:
   id:

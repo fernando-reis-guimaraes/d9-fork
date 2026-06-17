@@ -468,7 +468,7 @@ type CustomTypes = {
 	collection name exactly. Typos won't get caught here
 	since SDK will assume it's a custom user collection.
 	*/
-	directus_users: UserType;
+	sigedin_users: UserType;
 };
 
 const directus = new Directus<CustomTypes>('https://example.directus.app');
@@ -611,7 +611,7 @@ type MyBlog = {
 	// You can also extend Directus collection. The naming has
 	// to match a Directus system collection and it will be merged
 	// into the system spec.
-	directus_users: {
+	sigedin_users: {
 		bio: string;
 	};
 };
@@ -777,7 +777,7 @@ await articles.createOne(
 directus.activity;
 ```
 
-The activity property has all the methods of directus.items('directus_activity') with the addition of an alias to the
+The activity property has all the methods of directus.items('sigedin_activity') with the addition of an alias to the
 activity comments (below).
 
 ```js
@@ -901,7 +901,7 @@ await directus.fields.deleteOne(/* collection name */ 'articles', /* field_name 
 directus.files;
 ```
 
-The files property support all of the functions common to all items - directus.items('directus_files') with one
+The files property support all of the functions common to all items - directus.items('sigedin_files') with one
 addition: import.
 
 ### Import
@@ -1010,7 +1010,7 @@ await directus.files.import({
 directus.folders;
 ```
 
-Same methods as `directus.items("directus_folders")`.
+Same methods as `directus.items("sigedin_folders")`.
 
 ## Permissions
 
@@ -1018,7 +1018,7 @@ Same methods as `directus.items("directus_folders")`.
 directus.permissions;
 ```
 
-Same methods as `directus.items("directus_permissions")`.
+Same methods as `directus.items("sigedin_permissions")`.
 
 ## Presets
 
@@ -1026,7 +1026,7 @@ Same methods as `directus.items("directus_permissions")`.
 directus.presets;
 ```
 
-Same methods as `directus.items("directus_presets")`.
+Same methods as `directus.items("sigedin_presets")`.
 
 ## Relations
 
@@ -1034,7 +1034,7 @@ Same methods as `directus.items("directus_presets")`.
 directus.relations;
 ```
 
-Same methods as `directus.items("directus_relations")`.
+Same methods as `directus.items("sigedin_relations")`.
 
 ## Revisions
 
@@ -1042,7 +1042,7 @@ Same methods as `directus.items("directus_relations")`.
 directus.revisions;
 ```
 
-Same methods as `directus.items("directus_revisions")`.
+Same methods as `directus.items("sigedin_revisions")`.
 
 ## Roles
 
@@ -1050,7 +1050,7 @@ Same methods as `directus.items("directus_revisions")`.
 directus.roles;
 ```
 
-Same methods as `directus.items("directus_roles")`.
+Same methods as `directus.items("sigedin_roles")`.
 
 ## Settings
 
@@ -1058,7 +1058,7 @@ Same methods as `directus.items("directus_roles")`.
 directus.settings;
 ```
 
-Same methods as `directus.items("directus_settings")`.
+Same methods as `directus.items("sigedin_settings")`.
 
 ## Server
 
@@ -1080,7 +1080,7 @@ await directus.server.info();
 directus.users;
 ```
 
-Same methods as `directus.items("directus_users")`, and:
+Same methods as `directus.items("sigedin_users")`, and:
 
 ### Invite a New User
 

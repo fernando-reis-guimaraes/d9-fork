@@ -19,7 +19,7 @@ import { SettingsService } from './settings.js';
 
 export class UsersService extends ItemsService {
 	constructor(options: AbstractServiceOptions) {
-		super('directus_users', options);
+		super('sigedin_users', options);
 
 		this.knex = options.knex || getDatabase();
 		this.accountability = options.accountability || null;
@@ -37,7 +37,7 @@ export class UsersService extends ItemsService {
 
 		if (duplicates.length) {
 			throw new RecordNotUniqueException('email', {
-				collection: 'directus_users',
+				collection: 'sigedin_users',
 				field: 'email',
 				invalid: duplicates[0]!,
 			});
@@ -45,7 +45,7 @@ export class UsersService extends ItemsService {
 
 		const query = this.knex
 			.select('email')
-			.from('directus_users')
+			.from('sigedin_users')
 			.whereRaw(`LOWER(??) IN (${emails.map(() => '?')})`, ['email', ...emails]);
 
 		if (excludeKey) {
@@ -56,7 +56,7 @@ export class UsersService extends ItemsService {
 
 		if (results.length) {
 			throw new RecordNotUniqueException('email', {
-				collection: 'directus_users',
+				collection: 'sigedin_users',
 				field: 'email',
 				invalid: results[0].email,
 			});
@@ -65,7 +65,7 @@ export class UsersService extends ItemsService {
 
 	/**
 	 * Check if the provided password matches the strictness as configured in
-	 * directus_settings.auth_password_policy
+	 * sigedin_settings.auth_password_policy
 	 */
 	private async checkPasswordPolicy(passwords: string[]): Promise<void> {
 		const settingsService = new SettingsService({
@@ -102,10 +102,10 @@ export class UsersService extends ItemsService {
 		// Make sure there's at least one admin user left after this deletion is done
 		const otherAdminUsers = await this.knex
 			.count('*', { as: 'count' })
-			.from('directus_users')
-			.whereNotIn('directus_users.id', excludeKeys)
-			.andWhere({ 'directus_roles.admin_access': true })
-			.leftJoin('directus_roles', 'directus_users.role', 'directus_roles.id')
+			.from('sigedin_users')
+			.whereNotIn('sigedin_users.id', excludeKeys)
+			.andWhere({ 'sigedin_roles.admin_access': true })
+			.leftJoin('sigedin_roles', 'sigedin_users.role', 'sigedin_roles.id')
 			.first();
 
 		const otherAdminUsersCount = +(otherAdminUsers?.count || 0);
@@ -121,11 +121,11 @@ export class UsersService extends ItemsService {
 	private async checkRemainingActiveAdmin(excludeKeys: PrimaryKey[]): Promise<void> {
 		const otherAdminUsers = await this.knex
 			.count('*', { as: 'count' })
-			.from('directus_users')
-			.whereNotIn('directus_users.id', excludeKeys)
-			.andWhere({ 'directus_roles.admin_access': true })
-			.andWhere({ 'directus_users.status': 'active' })
-			.leftJoin('directus_roles', 'directus_users.role', 'directus_roles.id')
+			.from('sigedin_users')
+			.whereNotIn('sigedin_users.id', excludeKeys)
+			.andWhere({ 'sigedin_roles.admin_access': true })
+			.andWhere({ 'sigedin_users.status': 'active' })
+			.leftJoin('sigedin_roles', 'sigedin_users.role', 'sigedin_roles.id')
 			.first();
 
 		const otherAdminUsersCount = +(otherAdminUsers?.count || 0);
@@ -143,7 +143,7 @@ export class UsersService extends ItemsService {
 	): Promise<{ id: string; role: string; status: string; password: string; email: string }> {
 		return await this.knex
 			.select('id', 'role', 'status', 'password', 'email')
-			.from('directus_users')
+			.from('sigedin_users')
 			.whereRaw(`LOWER(??) = ?`, ['email', email.toLowerCase()])
 			.first();
 	}
@@ -239,7 +239,7 @@ export class UsersService extends ItemsService {
 				// data['role'] will be an object with id with GraphQL mutations
 				const roleId = data['role']?.id ?? data['role'];
 
-				const newRole = await this.knex.select('admin_access').from('directus_roles').where('id', roleId).first();
+				const newRole = await this.knex.select('admin_access').from('sigedin_roles').where('id', roleId).first();
 
 				if (!newRole?.admin_access) {
 					await this.checkRemainingAdminExistence(keys);
@@ -253,7 +253,7 @@ export class UsersService extends ItemsService {
 			if (data['email']) {
 				if (keys.length > 1) {
 					throw new RecordNotUniqueException('email', {
-						collection: 'directus_users',
+						collection: 'sigedin_users',
 						field: 'email',
 						invalid: data['email'],
 					});
@@ -310,7 +310,7 @@ export class UsersService extends ItemsService {
 			(opts || (opts = {})).preMutationException = err;
 		}
 
-		await this.knex('directus_notifications').update({ sender: null }).whereIn('sender', keys);
+		await this.knex('sigedin_notifications').update({ sender: null }).whereIn('sender', keys);
 
 		await super.deleteMany(keys, opts);
 		return keys;

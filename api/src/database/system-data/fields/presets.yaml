@@ -1,4 +1,4 @@
-table: directus_presets
+table: sigedin_presets
 
 fields:
   - field: filter

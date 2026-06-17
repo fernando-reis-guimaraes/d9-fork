@@ -1,4 +1,4 @@
-table: directus_folders
+table: sigedin_folders
 
 fields:
   - field: id

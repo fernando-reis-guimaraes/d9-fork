@@ -1,21 +1,21 @@
 import type { Knex } from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
-	await knex.schema.alterTable('directus_activity', (table) => {
+	await knex.schema.alterTable('sigedin_activity', (table) => {
 		table.string('session_id', 64).nullable();
 	});
 
-	await knex.schema.alterTable('directus_sessions', (table) => {
+	await knex.schema.alterTable('sigedin_sessions', (table) => {
 		table.string('session_id', 64).nullable();
 	});
 }
 
 export async function down(knex: Knex): Promise<void> {
-	await knex.schema.alterTable('directus_activity', (table) => {
+	await knex.schema.alterTable('sigedin_activity', (table) => {
 		table.dropColumn('session_id');
 	});
 
-	await knex.schema.alterTable('directus_sessions', (table) => {
+	await knex.schema.alterTable('sigedin_sessions', (table) => {
 		table.dropColumn('session_id');
 	});
 }

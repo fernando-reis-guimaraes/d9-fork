@@ -39,7 +39,7 @@ export abstract class BaseOAuthDriver extends LocalAuthDriver {
 	}
 
 	async fetchUserId(identifier: string): Promise<string | undefined> {
-		const user = await this.knex.select('id').from('directus_users').where('external_identifier', identifier).first();
+		const user = await this.knex.select('id').from('sigedin_users').where('external_identifier', identifier).first();
 
 		return user?.id;
 	}

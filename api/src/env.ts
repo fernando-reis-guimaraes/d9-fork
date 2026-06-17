@@ -245,11 +245,11 @@ const defaults: Record<string, any> = {
 	ACCESS_TOKEN_TTL: '15m',
 	ACCESS_TOKEN_COOKIE_SECURE: false,
 	ACCESS_TOKEN_COOKIE_SAME_SITE: 'lax',
-	ACCESS_TOKEN_COOKIE_NAME: 'directus_access_token',
+	ACCESS_TOKEN_COOKIE_NAME: 'sigedin_access_token',
 	REFRESH_TOKEN_TTL: '7d',
 	REFRESH_TOKEN_COOKIE_SECURE: false,
 	REFRESH_TOKEN_COOKIE_SAME_SITE: 'lax',
-	REFRESH_TOKEN_COOKIE_NAME: 'directus_refresh_token',
+	REFRESH_TOKEN_COOKIE_NAME: 'sigedin_refresh_token',
 	REFRESH_TOKEN_OVERLAP_DURATION: '10s',
 	OAUTH2_TOKEN_TTL: '1d',
 

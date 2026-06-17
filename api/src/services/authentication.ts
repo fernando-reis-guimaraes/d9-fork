@@ -76,8 +76,8 @@ export class AuthenticationService {
 				'u.external_identifier',
 				'u.auth_data'
 			)
-			.from('directus_users as u')
-			.leftJoin('directus_roles as r', 'u.role', 'r.id')
+			.from('sigedin_users as u')
+			.leftJoin('sigedin_roles as r', 'u.role', 'r.id')
 			.where('u.id', userId)
 			.first();
 
@@ -135,7 +135,7 @@ export class AuthenticationService {
 			try {
 				await loginAttemptsLimiter.consume(user.id);
 			} catch {
-				await this.knex('directus_users').update({ status: 'suspended' }).where({ id: user.id });
+				await this.knex('sigedin_users').update({ status: 'suspended' }).where({ id: user.id });
 				user.status = 'suspended';
 
 				// This means that new attempts after the user has been re-activated will be accepted
@@ -173,7 +173,7 @@ export class AuthenticationService {
 
 		const sessionId = nanoid(64);
 
-		await this.knex('directus_sessions').insert({
+		await this.knex('sigedin_sessions').insert({
 			token: refreshToken,
 			user: user.id,
 			expires: refreshTokenExpiration,
@@ -212,7 +212,7 @@ export class AuthenticationService {
 			issuer: 'directus',
 		});
 
-		await this.knex('directus_sessions').delete().where('expires', '<', new Date());
+		await this.knex('sigedin_sessions').delete().where('expires', '<', new Date());
 
 		if (this.accountability) {
 			await this.activityService.createOne({
@@ -221,13 +221,13 @@ export class AuthenticationService {
 				ip: this.accountability.ip,
 				user_agent: this.accountability.userAgent,
 				origin: this.accountability.origin,
-				collection: 'directus_users',
+				collection: 'sigedin_users',
 				item: user.id,
 				session_id: sessionId,
 			});
 		}
 
-		await this.knex('directus_users').update({ last_access: new Date() }).where({ id: user.id });
+		await this.knex('sigedin_users').update({ last_access: new Date() }).where({ id: user.id });
 
 		emitStatus('success');
 
@@ -280,10 +280,10 @@ export class AuthenticationService {
 				share_times_used: 'd.times_used',
 				share_max_uses: 'd.max_uses',
 			})
-			.from('directus_sessions AS s')
-			.leftJoin('directus_users AS u', 's.user', 'u.id')
-			.leftJoin('directus_shares AS d', 's.share', 'd.id')
-			.leftJoin('directus_roles AS r', (join) => {
+			.from('sigedin_sessions AS s')
+			.leftJoin('sigedin_users AS u', 's.user', 'u.id')
+			.leftJoin('sigedin_shares AS d', 's.share', 'd.id')
+			.leftJoin('sigedin_roles AS r', (join) => {
 				join.onIn('r.id', [this.knex.ref('u.role'), this.knex.ref('d.role')]);
 			})
 			.where('s.token', refreshToken)
@@ -301,7 +301,7 @@ export class AuthenticationService {
 		}
 
 		if (record.user_id && record.user_status !== 'active') {
-			await this.knex('directus_sessions').where({ token: refreshToken }).del();
+			await this.knex('sigedin_sessions').where({ token: refreshToken }).del();
 
 			if (record.user_status === 'suspended') {
 				await stall(STALL_TIME, timeStart);
@@ -332,7 +332,7 @@ export class AuthenticationService {
 		}
 
 		// Clean up expired sessions for this user first
-		await this.knex('directus_sessions')
+		await this.knex('sigedin_sessions')
 			.delete()
 			.where('user', '=', record.user_id)
 			.andWhere('expires', '<', new Date());
@@ -344,7 +344,7 @@ export class AuthenticationService {
 
 		// If a fallback session already exists, just update its expiration
 		if (record.session_fallback_token) {
-			await this.knex('directus_sessions')
+			await this.knex('sigedin_sessions')
 				.update({
 					expires: refreshTokenExpiration,
 				})
@@ -354,7 +354,7 @@ export class AuthenticationService {
 			const overlapDuration = getMilliseconds(env['REFRESH_TOKEN_OVERLAP_DURATION'], 10000);
 
 			// Atomic protection: only the first request can create the fallback_token
-			const sessionUpdated = await this.knex('directus_sessions')
+			const sessionUpdated = await this.knex('sigedin_sessions')
 				.update({
 					fallback_token: newRefreshToken,
 					expires: new Date(Date.now() + overlapDuration), // Current session expires after the overlapDuration
@@ -363,7 +363,7 @@ export class AuthenticationService {
 
 			if (sessionUpdated === 0) {
 				// Another request already created the fallback_token, retrieve it
-				const existingFallback = await this.knex('directus_sessions')
+				const existingFallback = await this.knex('sigedin_sessions')
 					.select('fallback_token')
 					.where({ token: refreshToken })
 					.first();
@@ -371,7 +371,7 @@ export class AuthenticationService {
 				newRefreshToken = existingFallback.fallback_token;
 			} else {
 				// We successfully created the fallback_token, create the new session
-				await this.knex('directus_sessions').insert({
+				await this.knex('sigedin_sessions').insert({
 					token: newRefreshToken,
 					user: record.user_id,
 					share: record.share_id,
@@ -429,7 +429,7 @@ export class AuthenticationService {
 		});
 
 		if (record.user_id) {
-			await this.knex('directus_users').update({ last_access: new Date() }).where({ id: record.user_id });
+			await this.knex('sigedin_users').update({ last_access: new Date() }).where({ id: record.user_id });
 		}
 
 		return {
@@ -454,8 +454,8 @@ export class AuthenticationService {
 				'u.external_identifier',
 				'u.auth_data'
 			)
-			.from('directus_sessions as s')
-			.innerJoin('directus_users as u', 's.user', 'u.id')
+			.from('sigedin_sessions as s')
+			.innerJoin('sigedin_users as u', 's.user', 'u.id')
 			.where('s.token', refreshToken)
 			.first();
 
@@ -468,7 +468,7 @@ export class AuthenticationService {
 			// Remove all related sessions (main and fallback)
 			await this.knex
 				.delete()
-				.from('directus_sessions')
+				.from('sigedin_sessions')
 				.where('token', refreshToken)
 				.orWhere('fallback_token', refreshToken);
 		}
@@ -488,7 +488,7 @@ export class AuthenticationService {
 				'external_identifier',
 				'auth_data'
 			)
-			.from('directus_users')
+			.from('sigedin_users')
 			.where('id', userID)
 			.first();
 

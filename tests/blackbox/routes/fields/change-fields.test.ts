@@ -99,7 +99,7 @@ describe.each(PRIMARY_KEY_TYPES)('/fields', (pkType) => {
 						.send({
 							collection: localCollectionCountries,
 							field: fieldName,
-							related_collection: 'directus_files',
+							related_collection: 'sigedin_files',
 							meta: { sort_field: null },
 							schema: { on_delete: 'SET NULL' },
 						})

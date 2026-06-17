@@ -1,4 +1,4 @@
-table: directus_collections
+table: sigedin_collections
 
 columns:
   collection:

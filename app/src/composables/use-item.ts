@@ -449,8 +449,8 @@ export function useItem(
 
 	function setItemValueToResponse(response: AxiosResponse) {
 		if (
-			(collection.value.startsWith('directus_') && collection.value !== 'directus_collections') ||
-			(collection.value === 'directus_collections' && response.data.data.collection?.startsWith('directus_'))
+			(collection.value.startsWith('sigedin_') && collection.value !== 'sigedin_collections') ||
+			(collection.value === 'sigedin_collections' && response.data.data.collection?.startsWith('sigedin_'))
 		) {
 			response.data.data = translate(response.data.data);
 		}

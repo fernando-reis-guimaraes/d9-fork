@@ -35,7 +35,7 @@ export type ComputedQuery = {
 	page: Ref<Query['page']> | WritableComputedRef<Query['page']>;
 };
 
-// ** bypass_collections_calls: [issues-33] we allow directus_collections to be read as items for m2m collection visualization
+// ** bypass_collections_calls: [issues-33] we allow sigedin_collections to be read as items for m2m collection visualization
 export function useItems(
 	collection: Ref<string | null>,
 	query: ComputedQuery,
@@ -155,7 +155,7 @@ export function useItems(
 		}
 
 		// Filter out fake internal columns. This is (among other things) for a fake $thumbnail m2o field
-		// on directus_files
+		// on sigedin_files
 		fieldsToFetch = fieldsToFetch.filter((field) => field.startsWith('$') === false);
 
 		try {
@@ -179,13 +179,13 @@ export function useItems(
 			 * @NOTE
 			 *
 			 * This is used in conjunction with the fake field in /src/stores/fields/fields.ts to be
-			 * able to render out the directus_files collection (file library) using regular layouts
+			 * able to render out the sigedin_files collection (file library) using regular layouts
 			 *
-			 * Layouts expect the file to be a m2o of a `file` type, however, directus_files is the
+			 * Layouts expect the file to be a m2o of a `file` type, however, sigedin_files is the
 			 * only collection that doesn't have this (obviously). This fake $thumbnail field is used to
 			 * pretend there is a file m2o, so we can use the regular layout logic for files as well
 			 */
-			if (collection.value === 'directus_files') {
+			if (collection.value === 'sigedin_files') {
 				fetchedItems = fetchedItems.map((file: any) => ({
 					...file,
 					$thumbnail: file,

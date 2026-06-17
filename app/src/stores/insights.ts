@@ -105,8 +105,8 @@ export const useInsightsStore = defineStore('insightsStore', () => {
 		const permissionsStore = usePermissionsStore();
 
 		if (
-			permissionsStore.hasPermission('directus_dashboards', 'read') &&
-			permissionsStore.hasPermission('directus_panels', 'read')
+			permissionsStore.hasPermission('sigedin_dashboards', 'read') &&
+			permissionsStore.hasPermission('sigedin_panels', 'read')
 		) {
 			try {
 				const [dashboardsResponse, panelsResponse] = await Promise.all([
@@ -232,7 +232,7 @@ export const useInsightsStore = defineStore('insightsStore', () => {
 		const gqlString = queryToGqlString(
 			Array.from(queries.values())
 				.filter(({ collection }) => {
-					return collection.startsWith('directus_') === false;
+					return collection.startsWith('sigedin_') === false;
 				})
 				.map(({ key, ...rest }) => ({ key: `query_${key}`, ...rest }))
 		);
@@ -240,7 +240,7 @@ export const useInsightsStore = defineStore('insightsStore', () => {
 		const systemGqlString = queryToGqlString(
 			Array.from(queries.values())
 				.filter(({ collection }) => {
-					return collection.startsWith('directus_') === true;
+					return collection.startsWith('sigedin_') === true;
 				})
 				.map(({ key, ...rest }) => ({
 					key: `query_${key}`,

@@ -2,7 +2,7 @@
 description: d9' Data Studio and APIs are the perfect choice for your Headless CMS.
 tags: []
 skill_level:
-directus_version:
+sigedin_version:
 author_override:
 author: Bryant Gillespie
 ---

@@ -112,7 +112,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	panels: [directus_panels]
+	panels: [sigedin_panels]
 }
 ```
 
@@ -161,7 +161,7 @@ POST /graphql/system
 
 ```graphql
 type Query {
-	panels_by_id(id: ID!): directus_panels
+	panels_by_id(id: ID!): sigedin_panels
 }
 ```
 
@@ -219,7 +219,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_panels_item(data: create_directus_panels_input!): directus_panels
+	create_panels_item(data: create_sigedin_panels_input!): sigedin_panels
 }
 ```
 
@@ -283,7 +283,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	create_panels_items(data: [create_directus_panels_input!]!): [directus_panels]
+	create_panels_items(data: [create_sigedin_panels_input!]!): [sigedin_panels]
 }
 ```
 
@@ -351,7 +351,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_panels_item(id: ID!, data: update_directus_panels_input): directus_panels
+	update_panels_item(id: ID!, data: update_sigedin_panels_input): sigedin_panels
 }
 ```
 
@@ -415,7 +415,7 @@ POST /graphql/system
 
 ```graphql
 type Mutation {
-	update_panels_items(ids: [ID!]!, data: update_directus_panels_input): [directus_panels]
+	update_panels_items(ids: [ID!]!, data: update_sigedin_panels_input): [sigedin_panels]
 }
 ```
 

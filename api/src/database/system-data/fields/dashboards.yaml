@@ -1,4 +1,4 @@
-table: directus_dashboards
+table: sigedin_dashboards
 
 fields:
   - field: id

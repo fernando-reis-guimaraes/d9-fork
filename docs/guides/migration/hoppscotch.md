@@ -2,7 +2,7 @@
 description: Learn how to migrate your data model to a new d9 project using Hoppscotch.
 tags: []
 skill_level:
-directus_version: 9.23.0
+sigedin_version: 9.23.0
 author_override:
 author: Kevin Lewis
 ---
@@ -13,7 +13,7 @@ author: Kevin Lewis
 
 :::tip Author: {{$frontmatter.author}}
 
-**d9 Version:** {{$frontmatter.directus_version}}
+**d9 Version:** {{$frontmatter.sigedin_version}}
 
 :::
 
